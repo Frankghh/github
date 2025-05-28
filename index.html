@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepFake Detection - AI Generated Image Identification Tool</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>DeepFake<span>Detect</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="login.html" class="btn-primary">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2><span class="highlight">Deepfake Detector</span></h2>
+                <h3>What you see may not be true...</h3>
+                <p>Using advanced deep learning technology, we can quickly and accurately detect if an image is AI-generated, helping you identify deepfake content.</p>
+                
+                <div class="upload-container">
+                    <div class="upload-box">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Drag and drop an image here or click to upload</p>
+                        <input type="file" id="image-upload" accept="image/*">
+                        <button class="btn-upload">Choose Image</button>
+                    </div>
+                    <div class="or-divider">
+                        <span>or</span>
+                    </div>
+                    <div class="url-input">
+                        <input type="text" placeholder="Paste image URL...">
+                        <button class="btn-url">Detect</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Why Choose Our AI Detection Tool?</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <h3>Fast Detection</h3>
+                    <p>Complete AI image analysis and detection in just seconds</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>High Accuracy</h3>
+                    <p>Using the latest deep learning models with up to 98% detection accuracy</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Privacy & Security</h3>
+                    <p>All uploaded images are encrypted to protect your data privacy</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-code"></i>
+                    <h3>API Access</h3>
+                    <p>Developer API available for integration with your applications</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Upload Image</h3>
+                    <p>Upload the image you want to analyze to our platform</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>AI Analysis</h3>
+                    <p>Our AI performs multi-level analysis on the image</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Get Results</h3>
+                    <p>View detailed detection report and AI generation probability</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="papers" class="papers">
+        <div class="container">
+            <h2>Research Papers</h2>
+            <div class="paper-grid">
+                <div class="paper-card">
+                    <div class="paper-image">
+                        <img src="images/paper1.jpg" alt="Research Paper Image">
+                    </div>
+                    <div class="paper-content">
+                        <h3>DeepfakeBench: A Comprehensive Benchmark of Deepfake Detection</h3>
+                        <p>Featuring an extensible, modular-based codebase, DeepfakeBench contains 15 state-of-the-art detection methods, 9 deepfake datasets, a series of deepfake detection evaluation protocols and analysis tools, as well as comprehensive evaluations...</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+                <div class="paper-card">
+                    <div class="paper-image">
+                        <img src="images/paper2.jpg" alt="Research Paper Image">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Transcending Forgery Specificity with Latent Space Augmentation for Generalizable Deepfake Detection</h3>
+                        <p>We introduce a simple yet effective deepfake detector that can generalize well in unseen deepfake datasets. Our key idea is that representations with a wider range of forgeries should learn a more adaptable decision boundary...</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="use-cases" class="use-cases">
+        <div class="container">
+            <h2>Our Services Are Suitable For</h2>
+            <div class="case-grid">
+                <div class="case-card">
+                    <i class="fas fa-newspaper"></i>
+                    <h3>News Media</h3>
+                    <p>Verify image authenticity to prevent fake news spread</p>
+                </div>
+                <div class="case-card">
+                    <i class="fas fa-gavel"></i>
+                    <h3>Legal Forensics</h3>
+                    <p>Provide professional image authentication reports for legal evidence</p>
+                </div>
+                <div class="case-card">
+                    <i class="fas fa-university"></i>
+                    <h3>Academic Research</h3>
+                    <p>Support academic research related to AI-generated content</p>
+                </div>
+                <div class="case-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Social Platforms</h3>
+                    <p>API integration to help social media filter AI-generated content</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about-us" class="about-us">
+        <div class="container">
+            <h2>About Us</h2>
+            <div class="about-content">
+                <p>This platform is established by Longgang District Key Laboratory of Intelligent Digital Economy Security (iDES), led by Professor Baoyuan Wu from the School of Data Science, the Chinese University of Hong Kong, Shenzhen (CUHK-Shenzhen). The iDES aims to develop advanced trustworthy AI technologies and systems, covering adversarial machine learning, privacy and copyright protection, deepfake detection, generative models, to enable AI to better serve human society. If you are interested in cooperation, please contact us (wubaoyuan@cuhk.edu.cn).</p>
+                <div class="about-address">
+                    <h3>Address</h3>
+                    <p>2001 Longxiang Blvd., Longgang District</p>
+                    <p>Shenzhen 518172, P.R.China</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>DeepFake Detect</h3>
+                    <p>Making every image trustworthy, helping to build a healthy digital content ecosystem.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-weibo"></i></a>
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Learn More</h4>
+                    <ul>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">How To Use</a></li>
+                        <li><a href="#">API Documentation</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                        <li><a href="#">Service Status</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Media Partnerships</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 DeepFake Detection. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>     

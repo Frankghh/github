@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - DeepFake Detection</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .login-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+            padding: 20px;
+        }
+        
+        .login-container {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            width: 100%;
+            max-width: 450px;
+            padding: 40px;
+        }
+        
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .login-header h1 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .login-header p {
+            color: var(--gray-color);
+        }
+        
+        .login-form .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .login-form .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .login-form .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+            transition: var(--transition);
+        }
+        
+        .login-form .form-group input:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        .login-form .options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .login-form .remember-me {
+            display: flex;
+            align-items: center;
+        }
+        
+        .login-form .remember-me input {
+            margin-right: 8px;
+        }
+        
+        .login-form button {
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .login-footer {
+            text-align: center;
+            margin-top: 30px;
+            color: var(--gray-color);
+        }
+        
+        .login-footer a {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .go-back {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: white;
+            color: var(--dark-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+        
+        .go-back:hover {
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="go-back">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+    
+    <section class="login-section">
+        <div class="login-container">
+            <div class="login-header">
+                <h1>DeepFake<span>Detect</span></h1>
+                <p>Please log in to your account</p>
+            </div>
+            
+            <form class="login-form">
+                <div class="form-group">
+                    <label for="username">Username or Email</label>
+                    <input type="text" id="username" placeholder="Enter your username or email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password">
+                </div>
+                
+                <div class="options">
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember">
+                        <label for="remember">Remember me</label>
+                    </div>
+                    
+                    <a href="#">Forgot password?</a>
+                </div>
+                
+                <button type="submit" class="btn-primary">Login</button>
+            </form>
+            
+            <div class="login-footer">
+                <p>Don't have an account? <a href="#">Sign up now</a></p>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        // Simple form validation
+        document.querySelector('.login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (!username || !password) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            // In a real application, this would send to server for verification
+            // This is just for demonstration
+            alert('Login functionality is under development. Please check back later!');
+        });
+    </script>
+</body>
+</html> 
