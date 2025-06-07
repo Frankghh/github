@@ -1,13 +1,138 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DeepFake Detection - AI Generated Image Identification Tool</title>
+    <title>深度伪造检测器 | DeepFake Detection - AI Generated Image Identification Tool</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* 语言切换按钮样式 */
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 999;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 5px;
+        }
+
+        .language-switcher button {
+            background: none;
+            border: 1px solid #ddd;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin: 0 2px;
+            transition: all 0.3s ease;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .language-switcher button.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .language-switcher button:hover {
+            background-color: #f8f9fa;
+        }
+
+        .language-switcher button.active:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* 隐藏非当前语言的内容 */
+        .lang-content {
+            display: none;
+        }
+
+        .lang-content.active {
+            display: block;
+        }
+
+        /* 内联双语文本样式 */
+        .inline-bilingual .zh {
+            display: none;
+        }
+
+        .inline-bilingual .en {
+            display: none;
+        }
+
+        body[data-lang="zh"] .inline-bilingual .zh {
+            display: inline;
+        }
+
+        body[data-lang="en"] .inline-bilingual .en {
+            display: inline;
+        }
+
+        body[data-lang="zh"] .lang-zh {
+            display: block;
+        }
+
+        body[data-lang="zh"] .lang-en {
+            display: none;
+        }
+
+        body[data-lang="en"] .lang-zh {
+            display: none;
+        }
+
+        body[data-lang="en"] .lang-en {
+            display: block;
+        }
+
+        /* 修复功能特性排版 */
+        .features {
+            padding: 60px 0;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .feature-card i {
+            font-size: 48px;
+            color: var(--primary-color, #4338ca);
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .feature-card p {
+            line-height: 1.6;
+            color: #666;
+        }
+    </style>
 </head>
-<body>
+<body data-lang="zh">
+    <!-- 语言切换器 -->
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="zh">中文</button>
+        <button class="lang-btn" data-lang="en">English</button>
+    </div>
+
     <header>
         <div class="container">
             <div class="logo">
@@ -15,10 +140,30 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#how-it-works">How It Works</a></li>
-                    <li><a href="login.html" class="btn-primary">Login</a></li>
+                    <li><a href="index.html">
+                        <span class="inline-bilingual">
+                            <span class="zh">首页</span>
+                            <span class="en">Home</span>
+                        </span>
+                    </a></li>
+                    <li><a href="#features">
+                        <span class="inline-bilingual">
+                            <span class="zh">功能</span>
+                            <span class="en">Features</span>
+                        </span>
+                    </a></li>
+                    <li><a href="#how-it-works">
+                        <span class="inline-bilingual">
+                            <span class="zh">原理</span>
+                            <span class="en">How It Works</span>
+                        </span>
+                    </a></li>
+                    <li><a href="login.html" class="btn-primary">
+                        <span class="inline-bilingual">
+                            <span class="zh">登录</span>
+                            <span class="en">Login</span>
+                        </span>
+                    </a></li>
                 </ul>
             </nav>
         </div>
@@ -27,23 +172,45 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h2><span class="highlight">Deepfake Detector</span></h2>
-                <h3>What you see may not be true...</h3>
-                <p>Using advanced deep learning technology, we can quickly and accurately detect if an image is AI-generated, helping you identify deepfake content.</p>
+                <h2><span class="highlight inline-bilingual">
+                    <span class="zh">深度伪造检测器</span>
+                    <span class="en">Deepfake Detector</span>
+                </span></h2>
+                
+                <h3 class="lang-zh">眼见不一定为实...</h3>
+                <h3 class="lang-en">What you see may not be true...</h3>
+                
+                <p class="lang-zh">使用先进的深度学习技术，我们能够快速准确地检测图片是否为AI生成，帮助您识别深度伪造内容。</p>
+                <p class="lang-en">Using advanced deep learning technology, we can quickly and accurately detect if an image is AI-generated, helping you identify deepfake content.</p>
                 
                 <div class="upload-container">
                     <div class="upload-box">
                         <i class="fas fa-cloud-upload-alt"></i>
-                        <p>Drag and drop an image here or click to upload</p>
+                        <p class="lang-zh">拖拽图片到这里或点击上传</p>
+                        <p class="lang-en">Drag and drop an image here or click to upload</p>
                         <input type="file" id="image-upload" accept="image/*">
-                        <button class="btn-upload">Choose Image</button>
+                        <button class="btn-upload">
+                            <span class="inline-bilingual">
+                                <span class="zh">选择图片</span>
+                                <span class="en">Choose Image</span>
+                            </span>
+                        </button>
                     </div>
                     <div class="or-divider">
-                        <span>or</span>
+                        <span class="inline-bilingual">
+                            <span class="zh">或者</span>
+                            <span class="en">or</span>
+                        </span>
                     </div>
                     <div class="url-input">
-                        <input type="text" placeholder="Paste image URL...">
-                        <button class="btn-url">Detect</button>
+                        <input type="text" id="image-url" class="lang-zh" placeholder="粘贴图片URL...">
+                        <input type="text" id="image-url-en" class="lang-en" placeholder="Paste image URL...">
+                        <button class="btn-url">
+                            <span class="inline-bilingual">
+                                <span class="zh">检测</span>
+                                <span class="en">Detect</span>
+                            </span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -52,27 +219,37 @@
 
     <section id="features" class="features">
         <div class="container">
-            <h2>Why Choose Our AI Detection Tool?</h2>
+            <h2 class="lang-zh">为什么选择我们的AI检测工具？</h2>
+            <h2 class="lang-en">Why Choose Our AI Detection Tool?</h2>
+            
             <div class="feature-grid">
                 <div class="feature-card">
                     <i class="fas fa-tachometer-alt"></i>
-                    <h3>Fast Detection</h3>
-                    <p>Complete AI image analysis and detection in just seconds</p>
+                    <h3 class="lang-zh">快速检测</h3>
+                    <h3 class="lang-en">Fast Detection</h3>
+                    <p class="lang-zh">在几秒钟内完成AI图像分析和检测</p>
+                    <p class="lang-en">Complete AI image analysis and detection in just seconds</p>
                 </div>
                 <div class="feature-card">
                     <i class="fas fa-chart-line"></i>
-                    <h3>High Accuracy</h3>
-                    <p>Using the latest deep learning models with up to 98% detection accuracy</p>
+                    <h3 class="lang-zh">高精度</h3>
+                    <h3 class="lang-en">High Accuracy</h3>
+                    <p class="lang-zh">使用最新的深度学习模型，检测准确率高达98%</p>
+                    <p class="lang-en">Using the latest deep learning models with up to 98% detection accuracy</p>
                 </div>
                 <div class="feature-card">
                     <i class="fas fa-shield-alt"></i>
-                    <h3>Privacy & Security</h3>
-                    <p>All uploaded images are encrypted to protect your data privacy</p>
+                    <h3 class="lang-zh">隐私安全</h3>
+                    <h3 class="lang-en">Privacy & Security</h3>
+                    <p class="lang-zh">所有上传图片均加密处理，保护您的数据隐私</p>
+                    <p class="lang-en">All uploaded images are encrypted to protect your data privacy</p>
                 </div>
                 <div class="feature-card">
                     <i class="fas fa-code"></i>
-                    <h3>API Access</h3>
-                    <p>Developer API available for integration with your applications</p>
+                    <h3 class="lang-zh">API接口</h3>
+                    <h3 class="lang-en">API Access</h3>
+                    <p class="lang-zh">提供开发者API，可集成到您的应用程序中</p>
+                    <p class="lang-en">Developer API available for integration with your applications</p>
                 </div>
             </div>
         </div>
@@ -80,22 +257,30 @@
 
     <section id="how-it-works" class="how-it-works">
         <div class="container">
-            <h2>How It Works</h2>
+            <h2 class="lang-zh">工作原理</h2>
+            <h2 class="lang-en">How It Works</h2>
+            
             <div class="steps">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <h3>Upload Image</h3>
-                    <p>Upload the image you want to analyze to our platform</p>
+                    <h3 class="lang-zh">上传图片</h3>
+                    <h3 class="lang-en">Upload Image</h3>
+                    <p class="lang-zh">将您想要分析的图片上传到我们的平台</p>
+                    <p class="lang-en">Upload the image you want to analyze to our platform</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
-                    <h3>AI Analysis</h3>
-                    <p>Our AI performs multi-level analysis on the image</p>
+                    <h3 class="lang-zh">AI分析</h3>
+                    <h3 class="lang-en">AI Analysis</h3>
+                    <p class="lang-zh">我们的AI对图片进行多层次分析</p>
+                    <p class="lang-en">Our AI performs multi-level analysis on the image</p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
-                    <h3>Get Results</h3>
-                    <p>View detailed detection report and AI generation probability</p>
+                    <h3 class="lang-zh">获得结果</h3>
+                    <h3 class="lang-en">Get Results</h3>
+                    <p class="lang-zh">查看详细的检测报告和AI生成概率</p>
+                    <p class="lang-en">View detailed detection report and AI generation probability</p>
                 </div>
             </div>
         </div>
@@ -103,7 +288,9 @@
 
     <section id="papers" class="papers">
         <div class="container">
-            <h2>Research Papers</h2>
+            <h2 class="lang-zh">研究论文</h2>
+            <h2 class="lang-en">Research Papers</h2>
+            
             <div class="paper-grid">
                 <div class="paper-card">
                     <div class="paper-image">
@@ -112,7 +299,8 @@
                     <div class="paper-content">
                         <h3>DeepfakeBench: A Comprehensive Benchmark of Deepfake Detection</h3>
                         <p>Featuring an extensible, modular-based codebase, DeepfakeBench contains 15 state-of-the-art detection methods, 9 deepfake datasets, a series of deepfake detection evaluation protocols and analysis tools, as well as comprehensive evaluations...</p>
-                        <a href="#" class="read-more">Read More</a>
+                        <a href="#" class="read-more lang-zh">阅读更多</a>
+                        <a href="#" class="read-more lang-en">Read More</a>
                     </div>
                 </div>
                 <div class="paper-card">
@@ -122,7 +310,8 @@
                     <div class="paper-content">
                         <h3>Transcending Forgery Specificity with Latent Space Augmentation for Generalizable Deepfake Detection</h3>
                         <p>We introduce a simple yet effective deepfake detector that can generalize well in unseen deepfake datasets. Our key idea is that representations with a wider range of forgeries should learn a more adaptable decision boundary...</p>
-                        <a href="#" class="read-more">Read More</a>
+                        <a href="#" class="read-more lang-zh">阅读更多</a>
+                        <a href="#" class="read-more lang-en">Read More</a>
                     </div>
                 </div>
             </div>
@@ -131,27 +320,37 @@
 
     <section id="use-cases" class="use-cases">
         <div class="container">
-            <h2>Our Services Are Suitable For</h2>
+            <h2 class="lang-zh">我们的服务适用于</h2>
+            <h2 class="lang-en">Our Services Are Suitable For</h2>
+            
             <div class="case-grid">
                 <div class="case-card">
                     <i class="fas fa-newspaper"></i>
-                    <h3>News Media</h3>
-                    <p>Verify image authenticity to prevent fake news spread</p>
+                    <h3 class="lang-zh">新闻媒体</h3>
+                    <h3 class="lang-en">News Media</h3>
+                    <p class="lang-zh">验证图片真实性，防止假新闻传播</p>
+                    <p class="lang-en">Verify image authenticity to prevent fake news spread</p>
                 </div>
                 <div class="case-card">
                     <i class="fas fa-gavel"></i>
-                    <h3>Legal Forensics</h3>
-                    <p>Provide professional image authentication reports for legal evidence</p>
+                    <h3 class="lang-zh">法律取证</h3>
+                    <h3 class="lang-en">Legal Forensics</h3>
+                    <p class="lang-zh">为法律证据提供专业的图像认证报告</p>
+                    <p class="lang-en">Provide professional image authentication reports for legal evidence</p>
                 </div>
                 <div class="case-card">
                     <i class="fas fa-university"></i>
-                    <h3>Academic Research</h3>
-                    <p>Support academic research related to AI-generated content</p>
+                    <h3 class="lang-zh">学术研究</h3>
+                    <h3 class="lang-en">Academic Research</h3>
+                    <p class="lang-zh">支持AI生成内容相关的学术研究</p>
+                    <p class="lang-en">Support academic research related to AI-generated content</p>
                 </div>
                 <div class="case-card">
                     <i class="fas fa-users"></i>
-                    <h3>Social Platforms</h3>
-                    <p>API integration to help social media filter AI-generated content</p>
+                    <h3 class="lang-zh">社交平台</h3>
+                    <h3 class="lang-en">Social Platforms</h3>
+                    <p class="lang-zh">API集成帮助社交媒体过滤AI生成内容</p>
+                    <p class="lang-en">API integration to help social media filter AI-generated content</p>
                 </div>
             </div>
         </div>
@@ -159,13 +358,20 @@
 
     <section id="about-us" class="about-us">
         <div class="container">
-            <h2>About Us</h2>
+            <h2 class="lang-zh">关于我们</h2>
+            <h2 class="lang-en">About Us</h2>
+            
             <div class="about-content">
-                <p>This platform is established by Longgang District Key Laboratory of Intelligent Digital Economy Security (iDES), led by Professor Baoyuan Wu from the School of Data Science, the Chinese University of Hong Kong, Shenzhen (CUHK-Shenzhen). The iDES aims to develop advanced trustworthy AI technologies and systems, covering adversarial machine learning, privacy and copyright protection, deepfake detection, generative models, to enable AI to better serve human society. If you are interested in cooperation, please contact us (wubaoyuan@cuhk.edu.cn).</p>
+                <p class="lang-zh">本平台由龙岗区智能数字经济安全重点实验室（iDES）建立，由香港中文大学（深圳）数据科学学院吴保元教授领导。iDES致力于开发先进的可信AI技术和系统，涵盖对抗机器学习、隐私与版权保护、深度伪造检测、生成模型等领域，使AI更好地服务人类社会。如果您有兴趣合作，请联系我们 (wubaoyuan@cuhk.edu.cn)。</p>
+                <p class="lang-en">This platform is established by Longgang District Key Laboratory of Intelligent Digital Economy Security (iDES), led by Professor Baoyuan Wu from the School of Data Science, the Chinese University of Hong Kong, Shenzhen (CUHK-Shenzhen). The iDES aims to develop advanced trustworthy AI technologies and systems, covering adversarial machine learning, privacy and copyright protection, deepfake detection, generative models, to enable AI to better serve human society. If you are interested in cooperation, please contact us (wubaoyuan@cuhk.edu.cn).</p>
+                
                 <div class="about-address">
-                    <h3>Address</h3>
-                    <p>2001 Longxiang Blvd., Longgang District</p>
-                    <p>Shenzhen 518172, P.R.China</p>
+                    <h3 class="lang-zh">地址</h3>
+                    <h3 class="lang-en">Address</h3>
+                    <p class="lang-zh">中国深圳市龙岗区龙翔大道2001号</p>
+                    <p class="lang-en">2001 Longxiang Blvd., Longgang District</p>
+                    <p class="lang-zh">邮编：518172</p>
+                    <p class="lang-en">Shenzhen 518172, P.R.China</p>
                 </div>
             </div>
         </div>
@@ -176,7 +382,8 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <h3>DeepFake Detect</h3>
-                    <p>Making every image trustworthy, helping to build a healthy digital content ecosystem.</p>
+                    <p class="lang-zh">让每一张图片都值得信赖，帮助构建健康的数字内容生态。</p>
+                    <p class="lang-en">Making every image trustworthy, helping to build a healthy digital content ecosystem.</p>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-weibo"></i></a>
                         <a href="#"><i class="fab fa-weixin"></i></a>
@@ -184,44 +391,92 @@
                     </div>
                 </div>
                 <div class="footer-col">
-                    <h4>Learn More</h4>
+                    <h4 class="lang-zh">了解更多</h4>
+                    <h4 class="lang-en">Learn More</h4>
                     <ul>
-                        <li><a href="#">Features</a></li>
-                        <li><a href="#">How To Use</a></li>
-                        <li><a href="#">API Documentation</a></li>
-                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#" class="lang-zh">功能特性</a><a href="#" class="lang-en">Features</a></li>
+                        <li><a href="#" class="lang-zh">使用方法</a><a href="#" class="lang-en">How To Use</a></li>
+                        <li><a href="#" class="lang-zh">API文档</a><a href="#" class="lang-en">API Documentation</a></li>
+                        <li><a href="#" class="lang-zh">案例研究</a><a href="#" class="lang-en">Case Studies</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Support</h4>
+                    <h4 class="lang-zh">支持</h4>
+                    <h4 class="lang-en">Support</h4>
                     <ul>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Refund Policy</a></li>
-                        <li><a href="#">Service Status</a></li>
+                        <li><a href="#" class="lang-zh">帮助中心</a><a href="#" class="lang-en">Help Center</a></li>
+                        <li><a href="#" class="lang-zh">联系我们</a><a href="#" class="lang-en">Contact Us</a></li>
+                        <li><a href="#" class="lang-zh">退款政策</a><a href="#" class="lang-en">Refund Policy</a></li>
+                        <li><a href="#" class="lang-zh">服务状态</a><a href="#" class="lang-en">Service Status</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Company</h4>
+                    <h4 class="lang-zh">公司</h4>
+                    <h4 class="lang-en">Company</h4>
                     <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Media Partnerships</a></li>
+                        <li><a href="#" class="lang-zh">关于我们</a><a href="#" class="lang-en">About Us</a></li>
+                        <li><a href="#" class="lang-zh">博客</a><a href="#" class="lang-en">Blog</a></li>
+                        <li><a href="#" class="lang-zh">招聘</a><a href="#" class="lang-en">Careers</a></li>
+                        <li><a href="#" class="lang-zh">媒体合作</a><a href="#" class="lang-en">Media Partnerships</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 DeepFake Detection. All Rights Reserved.</p>
+                <p>
+                    <span class="lang-zh">&copy; 2025 深度伪造检测. 版权所有.</span>
+                    <span class="lang-en">&copy; 2025 DeepFake Detection. All Rights Reserved.</span>
+                </p>
                 <div class="footer-links">
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Cookie Policy</a>
+                    <a href="#" class="lang-zh">服务条款</a><a href="#" class="lang-en">Terms of Service</a>
+                    <a href="#" class="lang-zh">隐私政策</a><a href="#" class="lang-en">Privacy Policy</a>
+                    <a href="#" class="lang-zh">Cookie政策</a><a href="#" class="lang-en">Cookie Policy</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <script src="js/script.js"></script>
+    <script>
+        // 语言切换功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const langButtons = document.querySelectorAll('.lang-btn');
+            const body = document.body;
+
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetLang = this.dataset.lang;
+                    
+                    // 更新按钮状态
+                    langButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // 更新body的data-lang属性
+                    body.setAttribute('data-lang', targetLang);
+                    
+                    // 更新HTML lang属性
+                    document.documentElement.lang = targetLang === 'zh' ? 'zh-CN' : 'en';
+                    
+                    // 更新页面标题
+                    if (targetLang === 'zh') {
+                        document.title = '深度伪造检测器 | DeepFake Detection - AI Generated Image Identification Tool';
+                    } else {
+                        document.title = 'DeepFake Detection - AI Generated Image Identification Tool | 深度伪造检测器';
+                    }
+                    
+                    // 存储用户选择的语言
+                    localStorage.setItem('preferred-language', targetLang);
+                });
+            });
+
+            // 页面加载时读取用户之前选择的语言
+            const savedLang = localStorage.getItem('preferred-language');
+            if (savedLang && savedLang !== 'zh') {
+                const targetButton = document.querySelector(`[data-lang="${savedLang}"]`);
+                if (targetButton) {
+                    targetButton.click();
+                }
+            }
+        });
+    </script>
 </body>
 </html>     
